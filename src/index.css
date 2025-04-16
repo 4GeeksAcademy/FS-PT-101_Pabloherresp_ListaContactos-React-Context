@@ -1,0 +1,11 @@
+.profile-pic {
+    height: auto; 
+    width: auto; 
+    max-width: 125px; 
+    max-height: 125px;
+  }
+
+  .dropdownAgendas{
+    max-height: 600px;
+    overflow-y: scroll;
+}

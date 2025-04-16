@@ -1,31 +1,35 @@
 export const initialStore=()=>{
   return{
-    message: null,
-    todos: [
+    API_AGENDAS: "https://playground.4geeks.com/contact/agendas",
+    agendas: [
+    ],
+    currentAgenda: {
+      id: null,
+      name: ""
+    },
+    contacts: [
       {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
+        id: null,
+        name: "",
+        phone: "",
+        address: "",
+        email: ""
       }
     ]
   }
 }
 
+
 export default function storeReducer(store, action = {}) {
   switch(action.type){
-    case 'add_task':
-
-      const { id,  color } = action.payload
-
+    case "LOAD_AGENDAS":
       return {
-        ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        ...store, agendas: action.payload
       };
+    case "SELECT_AGENDA":
+      return {
+        ...store, currentAgenda: {id: action.payload.id, slug: action.payload.slug}, contacts: action.payload.contacts
+      }
     default:
       throw Error('Unknown action.');
   }    

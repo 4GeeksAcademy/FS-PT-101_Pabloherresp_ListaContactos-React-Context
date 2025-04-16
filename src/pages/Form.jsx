@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 export const Form = () => {
     const {store, dispatch} = useGlobalReducer()
-
     const navigate = useNavigate();
 
     const [name, setName] = useState("")
@@ -21,14 +20,17 @@ export const Form = () => {
         else
             addContact()
     }
-    
-    const selectAgenda = async (id,slug) => {
-        const resp = await fetch(store.API_AGENDAS + "/" + slug + "/contacts")
-        const data = await resp.json()
-        dispatch({type: "SELECT_AGENDA", payload: {id: id, slug: slug, contacts: data.contacts}})
-        navigate("/")
-    }
 
+    const loadAgendas = async () => {
+		try {
+			const resp = await fetch(store.API_AGENDAS + "?offset=0&limit=100")
+			const data = await resp.json()
+			dispatch({type: "LOAD_AGENDAS", payload: data.agendas})
+		} catch (error) {
+			console.log(error)
+		}
+	}
+    
     const addContact = async () => {
         try {
             const resp = await fetch(store.API_AGENDAS + "/" + store.currentAgenda.slug + "/contacts",{
@@ -43,8 +45,7 @@ export const Form = () => {
             })
             if(!resp.ok) throw new Error("Error creating contact " + resp)
             const data = await resp.json()
-            console.log(data)
-            selectAgenda(store.currentAgenda.id,store.currentAgenda.slug)
+            loadAgendas()
             navigate("/")
         } catch (error) {
             console.log(error)

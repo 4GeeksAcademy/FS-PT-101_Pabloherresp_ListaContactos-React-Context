@@ -46,15 +46,11 @@ export const ContactCard = (props) => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="exampleModalLabel">Aviso</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                        ¿Desea eliminar este contacto?
+                        <h1 className="modal-title fs-5" id="exampleModalLabel">Do you wish to delete this contact?</h1>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" className="btn btn-primary" onClick={()=>removeContact(props.id)} data-bs-toggle="modal" data-bs-target="#deleteContactModal">Sí</button>
+                        <button type="button" className="btn btn-primary" onClick={()=>removeContact(props.id)} data-bs-toggle="modal" data-bs-target="#deleteContactModal">Yes</button>
                     </div>
                     </div>
                 </div>

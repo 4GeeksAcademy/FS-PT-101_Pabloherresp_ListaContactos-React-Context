@@ -5,7 +5,7 @@ import {ContactCard} from "../components/ContactCard.jsx"
 
 export const Home = () => {
 	const {store, dispatch} = useGlobalReducer()
-
+	
     const initAgenda = async () => {
 		try {
 			const resp = await fetch(store.API_AGENDAS + "/" + store.currentAgenda.slug + "/contacts")
@@ -27,9 +27,8 @@ export const Home = () => {
 		}
 	}
 
-
 	useEffect(()=>{
-		if(store.agendas.length >0 )
+		if(store.agendas.length > 0 )
 			loadAgendas()
 		if(store.currentAgenda.id){
 			initAgenda()
@@ -46,11 +45,10 @@ export const Home = () => {
 						<ContactCard key={el.id} id={el.id} name={el.name} address={el.address} phone={el.phone} email={el.email} />
 					)}
 				</ul> :	<div className="text-center">
-							<h4>No se han encontrado contactos</h4>
-							<p>Pruebe a cargar otra agenda o cree un contacto</p>
+							<h4>Haven't found any contacts</h4>
+							<p>Please load another agenda or add contacts</p>
 						</div>) : <div className="text-center">
-									<h4>No se ha elegido una agenda</h4>
-									<p>Use el botón superior</p>
+									<h4>You haven't choosen any agenda</h4>
 								</div>
 						)}
 			</div>

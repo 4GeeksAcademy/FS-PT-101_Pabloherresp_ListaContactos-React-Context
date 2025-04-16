@@ -6,6 +6,7 @@
   }
 
   .dropdownAgendas{
-    max-height: 600px;
-    overflow-y: scroll;
+    max-height: 300px;
+    scrollbar-width: thin;
+    overflow: auto;
 }

@@ -30,7 +30,7 @@ export const ContactCard = (props) => {
 
     return (
         <li className="list-group-item d-flex">
-            <img className="profile-pic mx-md-4 mt-2 rounded-circle" src={"https://picsum.photos/id/"+ Math.floor(Math.random()*100) +"/200"} alt="Random image"/>
+            <img className="profile-pic mx-md-4 mt-2 rounded-circle" src={"https://picsum.photos/id/" + Math.floor(Math.random()*50) +"/200"} alt="Random image"/>
             <div className="ms-3 align-self-center">
                 <h5 className="">{props.name}</h5>
                 <p className="text-secondary"><span><i className="me-2 fa-solid fa-location-dot"></i></span> {props.address}</p>

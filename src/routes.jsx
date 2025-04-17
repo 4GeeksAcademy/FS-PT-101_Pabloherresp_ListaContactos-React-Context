@@ -14,7 +14,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
         <Route path= "/" element={<Home />} />
         <Route path="/contact" element={ <Form />} />
-        <Route path="/contact/:theId" element={<Form />} />
+        <Route path="/contact/:contactId" element={<Form />} />
       </Route>
     )
 );

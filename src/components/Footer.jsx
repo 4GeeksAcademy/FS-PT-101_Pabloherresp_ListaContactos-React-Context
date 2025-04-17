@@ -1,5 +1,5 @@
 export const Footer = () => (
-	<footer className="footer mt-5 py-3 text-center bg-dark-subtle">
+	<footer className="footer mt-5 py-3 text-center bg-dark-subtle ">
 		<p>
 			Check the <a target="_blank" href="https://4geeks.com/docs/start/start-react-advanced-project">template documentation</a> <i className="fa-solid fa-file"></i> for help.
 		</p>

@@ -5,7 +5,7 @@ export const initialStore=()=>{
     ],
     currentAgenda: {
       id: null,
-      name: ""
+      slug: ""
     },
     contacts: [
       {
@@ -24,10 +24,18 @@ export default function storeReducer(store, action = {}) {
     case "LOAD_AGENDAS":
       return {
         ...store, agendas: action.payload
-      };
+      }
     case "SELECT_AGENDA":
       return {
-        ...store, currentAgenda: {id: action.payload.id, slug: action.payload.slug}, contacts: action.payload.contacts
+        ...store, currentAgenda: action.payload
+      }
+    case "LOAD_CONTACTS":
+      return {
+        ...store, contacts: action.payload
+      }
+    case "RESET_AGENDA":
+      return {
+        ...store, currentAgenda: {id: null, slug: ""}
       }
     default:
       throw Error('Unknown action.');

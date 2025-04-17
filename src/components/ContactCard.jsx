@@ -6,8 +6,7 @@ export const ContactCard = (props) => {
     const {store, dispatch} = useGlobalReducer()
     
 	const handleDelete = async () => {
-        console.log(props.id)
-        const data = await contactServices.deleteContact(id,store.currentAgenda.slug)
+        const data = await contactServices.deleteContact(props.id,store.currentAgenda.slug)
 		dispatch({type: "LOAD_CONTACTS", payload: data.contacts})
 	}
 

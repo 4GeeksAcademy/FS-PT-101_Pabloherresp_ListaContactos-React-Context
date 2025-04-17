@@ -36,8 +36,8 @@ export const Navbar = () => {
 		loadAgendas()
 		selectAgenda(data.id,data.slug)
 		setAgenda("")
-		refDropdown.current.hidden=true
 		navigate("/")
+		refDropdown.current.classList.remove('show');
     }
 
 	useEffect(()=>{
@@ -51,7 +51,7 @@ export const Navbar = () => {
 					<span className="navbar-brand mb-0 h1">Contactos</span>
 				</Link>
 				{/* dropdown para crear o cargar una agenda */}
-				<div className="dropdown">
+				<div className="dropdown ms-3">
 					<button className="btn btn-primary my-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						{(store.currentAgenda.id ? store.currentAgenda.slug : "Load agenda")}
 					</button>
@@ -76,8 +76,8 @@ export const Navbar = () => {
 				{/* Ternaria para mostrar los botones de borrar agenda y añadir contacto si hay una agenda cargada */}
 				{(store.currentAgenda?.id ? 
 				<>
-					<button type="button" className="btn btn-danger mx-3" data-bs-toggle="modal" data-bs-target="#deleteAgendaModal">Delete agenda</button> {/* modal se encuentra en home */}
-					<Link to="/contact" className=""><button type="button" className="btn btn-success">Add new contact</button></Link>
+					<button type="button" className="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#deleteAgendaModal">Delete agenda</button> {/* modal se encuentra en home */}
+					<Link to="/contact" className="ms-3"><button type="button" className="btn btn-success">Add new contact</button></Link>
 
 				</> : "")}
 			</div>

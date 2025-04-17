@@ -23,8 +23,6 @@ contactServices.getContactsForAgenda = async (slug) => {
 }
 
 contactServices.deleteContact = async (id,slug) => {
-    
-    console.log("Borrando id " + id)
     try {
         const resp = await fetch("https://playground.4geeks.com/contact/agendas/" + slug + "/contacts/" + id,{
             method: "DELETE",

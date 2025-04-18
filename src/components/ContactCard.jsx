@@ -19,9 +19,9 @@ export const ContactCard = (props) => {
                 <p className="text-secondary"><span><i className="me-2 fa-solid fa-phone-flip"></i></span> {props.phone}</p>
                 <p className="text-secondary"><span><i className="me-2 fa-solid fa-envelope"></i></span> {props.email}</p>
             </div>
-            <div className="ms-auto my-3">
-                <Link className="mx-3 text-dark" to={"/contact/" + props.id}><i className="fa-solid fa-pencil"></i></Link>
-                <button className="btn mx-3" data-bs-toggle="modal" data-bs-target={"#deleteContactModal" + props.id}><i className="fa-solid fa-trash"></i></button>
+            <div className="ms-auto me-2 my-3">
+                <Link className="btn text-primary" to={"/contact/" + props.id}><i className="fa-solid fa-pencil"></i></Link>
+                <button className="btn text-danger" data-bs-toggle="modal" data-bs-target={"#deleteContactModal" + props.id}><i className="fa-solid fa-trash"></i></button>
             </div>
 
             {/* modal para confirmar la eliminación del contacto */}

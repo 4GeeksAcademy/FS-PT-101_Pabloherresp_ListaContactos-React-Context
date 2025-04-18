@@ -46,20 +46,20 @@ export const Navbar = () => {
  
 	return (
 		<nav className="navbar navbar-light bg-dark-subtle">
-			<div className="container my-3 d-flex justify-content-start">
+			<div className="container my-3 d-flex justify-content-end">
 				<Link to="/" className="me-auto">
-					<span className="navbar-brand mb-0 h1">Contactos</span>
+					<span className="navbar-brand ms-3 mb-0 h1">Contactos</span>
 				</Link>
 				{/* dropdown para crear o cargar una agenda */}
 				<div className="dropdown ms-3">
 					<button className="btn btn-primary my-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						{(store.currentAgenda.id ? store.currentAgenda.slug : "Load agenda")}
 					</button>
-					<ul className="dropdown-menu" ref={refDropdown}>
+					<ul className="dropdown-menu dropdown-menu-end" ref={refDropdown}>
 						<li className="dropdown-item">
 						<form onSubmit={handleSubmit}>
 							<label htmlFor="exampleFormControlInput1" className="form-label fw-bold">Create agenda</label>
-							<input type="text" className="form-control form-text form-control-sm" value={agenda} placeholder="Enter name" onChange={(e)=>setAgenda(e.target.value)} required/>
+							<input type="text" className="form-control form-text form-control-sm" value={agenda} placeholder="Enter name"onChange={(e)=>setAgenda(e.target.value)} required/>
 							<input type="submit" value="Save" className="btn btn-primary w-100" hidden/>
 						</form>
 						</li>
@@ -74,12 +74,11 @@ export const Navbar = () => {
 					</ul>
 				</div>
 				{/* Ternaria para mostrar los botones de borrar agenda y añadir contacto si hay una agenda cargada */}
-				{(store.currentAgenda?.id ? 
+				{store.currentAgenda?.id ? 
 				<>
 					<button type="button" className="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#deleteAgendaModal">Delete agenda</button> {/* modal se encuentra en home */}
 					<Link to="/contact" className="ms-3"><button type="button" className="btn btn-success">Add new contact</button></Link>
-
-				</> : "")}
+				</> : ""}
 			</div>
 							
 			{/* modal eliminar cuenta */}

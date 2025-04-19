@@ -1,20 +1,9 @@
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx"
-import contactServices from "../services/contactServices.js"
-import {useEffect} from "react"
 import {ContactCard} from "../components/ContactCard.jsx"
-import { useParams } from "react-router-dom";
 
 
 export const Home = () => {
 	const {store, dispatch} = useGlobalReducer()
-
-	const loadCurrentContacts = async () => {
-		const data = await contactServices.getContactsForAgenda(store.currentAgenda.slug)
-		dispatch({type: "LOAD_CONTACTS", payload: data.contacts})
-	}
-
-	useEffect(()=>{
-	},[])
 
 	return (
 		<div className="container">
